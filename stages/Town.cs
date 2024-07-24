@@ -117,6 +117,7 @@ namespace Reign_of_Grelok.stages
         private void ShowStandardBlacksmithMessage()
         {
             Console.Clear();
+            Console.Write("Você se aproxima do ferreiro...\n\n\n");
             Console.WriteLine(
                 "Seus olhos lacrimejam por causa da fumaça e do calor bajulador dentro da tenda. " +
                 "O homem enorme enxuga o suor da cabeça careca e levanta os olhos do trabalho.\r\n\r\n\"" +
@@ -137,6 +138,7 @@ namespace Reign_of_Grelok.stages
         private void ShowStandardPriestMessage()
         {
             Console.Clear();
+            Console.Write("Você se aproxima do clérigo...\n\n\n");
             Console.WriteLine(
                 "O padre percebe sua aproximação e levanta os olhos do seu gole.\r\n" +
                 "“Grelok chegou e estamos abandonados!”, ele grita. " +
