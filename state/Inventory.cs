@@ -28,6 +28,13 @@ namespace Reign_of_Grelok.state
             rawGemStone = false;
             itemDescriptions = new List<string>();
             itemDescriptions.Add("Sua arma. Enferrujada, mas confiável.");
+            itemDescriptions.Add("Um frasco muito pequeno para transportar água.");
+            itemDescriptions.Add("O cheiro pode torná-lo impopular...");
+            itemDescriptions.Add("Uma pedra preciosa brilhante e facetada.");
+            itemDescriptions.Add("O fragmento de gema pulsa com luz mágica...");
+            itemDescriptions.Add("Uma arma encantada para derrotar Grelok!");
+            itemDescriptions.Add("Chave dada a você pelo padre");
+            itemDescriptions.Add("Esta pedra preciosa pode ser valiosa...");
         }
 
         public void Load(CallbackStageMenu callback)
@@ -62,6 +69,41 @@ namespace Reign_of_Grelok.state
                     this.showItemDescription(0);
                     this.Load(callback);
                     break;
+                case '2':
+                    this.checkIfItemISAvailable(drinkingFlask, callback);
+                    this.showItemDescription(1);
+                    this.Load(callback);
+                    break;
+                case '3':
+                    this.checkIfItemISAvailable(zombieHead, callback);
+                    this.showItemDescription(2);
+                    this.Load(callback);
+                    break;
+                case '4':
+                    this.checkIfItemISAvailable(refinedGemStone, callback);
+                    this.showItemDescription(3);
+                    this.Load(callback);
+                    break;
+                case '5':
+                    this.checkIfItemISAvailable(magicalShard, callback);
+                    this.showItemDescription(4);
+                    this.Load(callback);
+                    break;
+                case '6':
+                    this.checkIfItemISAvailable(magicSword, callback);
+                    this.showItemDescription(5);
+                    this.Load(callback);
+                    break;
+                case '7':
+                    this.checkIfItemISAvailable(brassKey, callback);
+                    this.showItemDescription(6);
+                    this.Load(callback);
+                    break;
+                case '8':
+                    this.checkIfItemISAvailable(rawGemStone, callback);
+                    this.showItemDescription(7);
+                    this.Load(callback);
+                    break;
                 case 'b':
                 case 'B':
                     Console.Clear();
@@ -91,7 +133,7 @@ namespace Reign_of_Grelok.state
         private void showItemDescription(int index)
         {
             Console.Clear();
-            Console.WriteLine(this.itemDescriptions[0]);
+            Console.WriteLine(this.itemDescriptions[index]);
             Console.WriteLine();
             Console.WriteLine("Pressione qualquer tecla para continuar");
             Console.ReadKey();
