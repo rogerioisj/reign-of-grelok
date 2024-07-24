@@ -3,7 +3,7 @@ using Reign_of_Grelok.state;
 
 namespace Reign_of_Grelok.stages
 {
-    class Plains : IStage
+    class Plains
     {
         private Inventory inventoryInstance;
         private Town townInstance;
