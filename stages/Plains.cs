@@ -54,7 +54,7 @@ namespace Reign_of_Grelok.stages
             }
         }
 
-        public void ShowStageMessage()
+        private void ShowStageMessage()
         {
             Console.Clear();
             Console.WriteLine("" +
