@@ -139,5 +139,9 @@ namespace Reign_of_Grelok.state
             Console.ReadKey();
             Console.Clear();
         }
+
+        public void GetZombieHead() { this.zombieHead = true; }
+
+        public bool HasZombieHead() { return this.zombieHead; }
     }
 }
