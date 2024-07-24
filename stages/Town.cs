@@ -2,8 +2,6 @@
 
 namespace Reign_of_Grelok.stages
 {
-    delegate void CallbackStageMenu();
-
     class Town
     {
         private Inventory inventoryInstance;
