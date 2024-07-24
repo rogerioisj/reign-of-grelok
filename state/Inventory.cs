@@ -14,6 +14,7 @@ namespace Reign_of_Grelok.state
         private bool magicSword;
         private bool brassKey;
         private bool rawGemStone;
+        private List<string> itemDescriptions;
 
         public Inventory()
         {
@@ -25,13 +26,15 @@ namespace Reign_of_Grelok.state
             magicSword = false;
             brassKey = false;
             rawGemStone = false;
+            itemDescriptions = new List<string>();
+            itemDescriptions.Add("Sua arma. Enferrujada, mas confiável.");
         }
 
         public void Load(CallbackStageMenu callback)
         {
             Console.WriteLine("REINO DE GRELOK (beta v.632)");
             Console.WriteLine("------------------------------------");
-            Console.WriteLine("\n\n\nInventário");
+            Console.WriteLine("\nInventário");
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Pressione de acordo com o item:");
             if (rustSword) Console.WriteLine("1 - Espada enferrujada");
@@ -55,7 +58,10 @@ namespace Reign_of_Grelok.state
             switch (key)
             {
                 case '1':
-                    if (!rustSword) Console
+                    this.checkIfItemISAvailable(rustSword, callback);
+                    this.showItemDescription(0);
+                    this.Load(callback);
+                    break;
                 case 'b':
                 case 'B':
                     Console.Clear();
@@ -72,6 +78,24 @@ namespace Reign_of_Grelok.state
             }
         }
 
-        //private 
+        private void checkIfItemISAvailable(bool item, CallbackStageMenu callback)
+        {
+            if (!item)
+            {
+                Console.Clear();
+                Console.WriteLine("Opção inválida!\n\n\n");
+                this.Load(callback);
+            }
+        }
+
+        private void showItemDescription(int index)
+        {
+            Console.Clear();
+            Console.WriteLine(this.itemDescriptions[0]);
+            Console.WriteLine();
+            Console.WriteLine("Pressione qualquer tecla para continuar");
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
 }
