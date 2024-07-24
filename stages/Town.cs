@@ -94,6 +94,7 @@ namespace Reign_of_Grelok.stages
         private void ShowStageMessage()
         {
             Console.Clear();
+            Console.WriteLine("Você olha ao seu redor...\n\n");
             Console.WriteLine(
                 "Você está na poeirenta praça do mercado de uma cidade tranquila. " +
                 "Muitas das lojas e casas estão abandonadas, e os cidadãos que podem ser vistos falam em voz baixa, lançando olhares furtivos para o horizonte escuro no extremo norte. " +
