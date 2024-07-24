@@ -22,8 +22,11 @@ namespace Reign_of_Grelok.stages
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Pressione de acordo com o destino:");
             Console.WriteLine("1 - Olhar ao redor");
-            Console.WriteLine("2 - Falar com ferreiro");
-            Console.WriteLine("3 - Falar com padre");
+            if (stateManagementInstance.AlreadyCheckTown())
+            {
+                Console.WriteLine("2 - Falar com ferreiro");
+                Console.WriteLine("3 - Falar com padre");
+            }
             Console.WriteLine("4 - Ir para Norte");
             Console.WriteLine("I - Iventário");
             Console.WriteLine("Q - Sair");
@@ -47,12 +50,12 @@ namespace Reign_of_Grelok.stages
                 case 'i':
                 case 'I':
                     Console.Clear();
-                    this.inventoryInstance.Load(this.Load);
+                    this.inventoryInstance.Load(_ => this.Load(callback));
                     break;
                 default:
                     Console.Clear();
                     Console.WriteLine("Opção inválida!\n\n\n");
-                    this.Load();
+                    this.Load(callback);
                     break;
             }
         }
@@ -76,6 +79,8 @@ namespace Reign_of_Grelok.stages
                 "O ferreiro está aqui, trabalhando.\r\n\r\n" +
                 "Um padre está aqui, bebendo."
              );
+            Console.Clear();
+            this.stateManagementInstance.SeeTown();
         }
 
         private void ShowBlacksmithMessage()

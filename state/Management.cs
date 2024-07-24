@@ -13,6 +13,8 @@ namespace Reign_of_Grelok.state
 
         public void SeeTown() { this.hasSeeTown = true; }
 
+        public bool AlreadyCheckTown() { return this.hasSeeTown; }
+
         public void FinishGame() { this.hasFinishedGame = true; }
     }
 }

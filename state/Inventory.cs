@@ -2,7 +2,7 @@
 
 namespace Reign_of_Grelok.state
 {
-    delegate void CallbackStageMenu();
+    delegate void CallbackStageMenu(char? key);
 
     class Inventory
     {
@@ -107,7 +107,7 @@ namespace Reign_of_Grelok.state
                 case 'b':
                 case 'B':
                     Console.Clear();
-                    callback();
+                    callback(null);
                     break;
                 case 'q':
                     Environment.Exit(0);

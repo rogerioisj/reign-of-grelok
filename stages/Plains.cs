@@ -46,7 +46,7 @@ namespace Reign_of_Grelok.stages
                 case 'i':
                 case 'I':
                     Console.Clear();
-                    this.inventoryInstance.Load(this.Load);
+                    this.inventoryInstance.Load(_ => this.Load());
                     break;
                 default:
                     Console.Clear();
