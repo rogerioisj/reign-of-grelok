@@ -5,6 +5,13 @@ namespace Reign_of_Grelok.stages
 {
     class Plains : IStage
     {
+        private Inventory iventoryInstance;
+
+        public Plains(Inventory iventoryInstance)
+        {
+            this.iventoryInstance = iventoryInstance;
+        }
+
         public void Load()
         {
             Console.WriteLine("REINO DE GRELOK (beta v.632)");
@@ -30,7 +37,13 @@ namespace Reign_of_Grelok.stages
                     this.ShowStageMessage();
                     break;
                 case 'q':
+                case 'Q':
                     Environment.Exit(0);
+                    break;
+                case 'i':
+                case 'I':
+                    Console.Clear();
+                    this.iventoryInstance.Load(this.Load);
                     break;
                 default:
                     Console.Clear();
