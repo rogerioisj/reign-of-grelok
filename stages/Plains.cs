@@ -16,8 +16,10 @@ namespace Reign_of_Grelok.stages
         {
             Console.WriteLine("REINO DE GRELOK (beta v.632)");
             Console.WriteLine("------------------------------------");
+            Console.WriteLine("\nPlanícies");
+            Console.WriteLine("------------------------------------");
             Console.WriteLine("Pressione de acordo com o destino:");
-            Console.WriteLine("1 - (Planícies) Olhar ao redor");
+            Console.WriteLine("1 - Olhar ao redor");
             Console.WriteLine("2 - Ir para Norte");
             Console.WriteLine("3 - Ir para Sul");
             Console.WriteLine("4 - Ir para Leste");
