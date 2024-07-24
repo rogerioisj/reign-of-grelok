@@ -130,6 +130,17 @@ namespace Reign_of_Grelok.stages
 
         private void ShowPriestMessage()
         {
+            if (this.inventoryInstance.HasKey() && this.stateManagementInstance.AlreadyKilledZombie())
+            {
+                this.ShowZombieHeadWithItemPriestMessage();
+                return;
+            }
+
+            if (this.stateManagementInstance.AlreadyKilledZombie())
+            {
+                this.ShowZombieHeadWithoutItemPriestMessage();
+                return;
+            }
             this.ShowStandardPriestMessage();
         }
 
@@ -145,6 +156,40 @@ namespace Reign_of_Grelok.stages
                 "Quando Grelok chegou à montanha, os mortos em seu cemitério começaram a se levantar e sua congregação se dispersou.\r\n\r\n" +
                 "“Se você pudesse livrar o lugar dos zumbis”, ele lhe diz, “eu te darei a chave, e você pode ir ao boticário”"
              );
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+        private void ShowZombieHeadWithoutItemPriestMessage()
+        {
+            Console.Clear();
+            Console.Write("Você se aproxima do clérigo...\n\n\n");
+            Console.WriteLine("O padre amaldiçoa bêbado os mortos-vivos que contaminaram sua igreja. " +
+                "Você apresenta a ele a cabeça decapitada do zumbi que está em sua bolsa.\r\n\r\n" +
+                "“Louvado seja você!”, ele soluça. " +
+                "“Talvez a influência de Grelok não seja tão forte!”. " +
+                "Com isso, ele vira sua garrafa de cabeça para baixo e a joga na lareira, onde ela explode em chamas roxas e queima quase instantaneamente.\r\n\r\n\"" +
+                "Devo reunir os fiéis.\" " +
+                "Ele pressiona uma chave de latão na palma da sua mão:" +
+                " \"Por favor, sirva-se do pouco que puder ser útil em minha capela.\""
+            );
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+            this.inventoryInstance.GetKey();
+        }
+
+        private void ShowZombieHeadWithItemPriestMessage()
+        {
+            Console.Clear();
+            Console.Write("Você se aproxima do clérigo...\n\n\n");
+            Console.WriteLine("O padre está bebendo água, debruçado sobre um grosso volume encadernado em couro preso ao pescoço por uma grossa tira de couro. " +
+                "Ele percebe você apenas quando você chega muito perto.\r\n\r\n\"" +
+                "Ah, bom amigo! Você já foi abrir a capela? " +
+                "Meu corpo ainda dói de tanto beber, infelizmente, mas logo reunirei a congregação e voltarei sozinho.\"");
             Console.WriteLine();
             Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
             Console.ReadKey();
