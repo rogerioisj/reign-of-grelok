@@ -31,24 +31,34 @@ namespace Reign_of_Grelok.state
         {
             Console.WriteLine("REINO DE GRELOK (beta v.632)");
             Console.WriteLine("------------------------------------");
-            Console.WriteLine("Pressione de acordo com o destino:");
-            Console.WriteLine("1 - (Planícies) Olhar ao redor");
-            Console.WriteLine("2 - Ir para Norte");
-            Console.WriteLine("3 - Ir para Sul");
-            Console.WriteLine("4 - Ir para Leste");
-            Console.WriteLine("5 - Ir para Oeste");
+            Console.WriteLine("\n\n\nInventário");
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Pressione de acordo com o item:");
+            if (rustSword) Console.WriteLine("1 - Espada enferrujada");
+            if (drinkingFlask) Console.WriteLine("2 - Frasco de bebida");
+            if (zombieHead) Console.WriteLine("3 - Cabeça de zumbi");
+            if (refinedGemStone) Console.WriteLine("4 - Pedra preciosa refinada");
+            if (magicalShard) Console.WriteLine("5 - Fragmento mágico");
+            if (magicSword) Console.WriteLine("6 - Espada mágica");
+            if (brassKey) Console.WriteLine("7 - Chave de bronze");
+            if (rawGemStone) Console.WriteLine("8 - Pedra preciosa bruta");
             Console.WriteLine("B - Voltar");
+            Console.WriteLine("Q - Sair");
             var keyInfo = Console.ReadKey();
             var key = keyInfo.KeyChar;
 
             this.LoadOptions(key, callback);
         }
 
-        public void LoadOptions(char key, CallbackStageMenu callback)
+        private void LoadOptions(char key, CallbackStageMenu callback)
         {
             switch (key)
             {
+                case '1':
+                    if (!rustSword) Console
                 case 'b':
+                case 'B':
+                    Console.Clear();
                     callback();
                     break;
                 case 'q':
@@ -61,5 +71,7 @@ namespace Reign_of_Grelok.state
                     break;
             }
         }
+
+        //private 
     }
 }
