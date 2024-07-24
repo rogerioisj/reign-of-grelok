@@ -32,7 +32,7 @@ namespace Reign_of_Grelok.stages
             this.LoadOptions(key);
         }
 
-        public void LoadOptions(char key)
+        private void LoadOptions(char key)
         {
             switch (key)
             {

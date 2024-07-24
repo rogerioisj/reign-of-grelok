@@ -7,6 +7,8 @@ namespace Reign_of_Grelok
     {
         static void Main(string[] args) {
             var inventory = new Inventory();
+            var stateManagement = new Management();
+            var town = new Town(inventory, stateManagement);
             var plains = new Plains(inventory);
             plains.Load();
         }
