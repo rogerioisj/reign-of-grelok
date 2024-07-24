@@ -33,7 +33,7 @@ namespace Reign_of_Grelok.state
             itemDescriptions.Add("Uma pedra preciosa brilhante e facetada.");
             itemDescriptions.Add("O fragmento de gema pulsa com luz mágica...");
             itemDescriptions.Add("Uma arma encantada para derrotar Grelok!");
-            itemDescriptions.Add("Chave dada a você pelo padre");
+            itemDescriptions.Add("Chave dada a você pelo padre.");
             itemDescriptions.Add("Esta pedra preciosa pode ser valiosa...");
         }
 
@@ -50,7 +50,7 @@ namespace Reign_of_Grelok.state
             if (refinedGemStone) Console.WriteLine("4 - Pedra preciosa refinada");
             if (magicalShard) Console.WriteLine("5 - Fragmento mágico");
             if (magicSword) Console.WriteLine("6 - Espada mágica");
-            if (brassKey) Console.WriteLine("7 - Chave de bronze");
+            if (brassKey) Console.WriteLine("7 - Chave de latão");
             if (rawGemStone) Console.WriteLine("8 - Pedra preciosa bruta");
             Console.WriteLine("B - Voltar");
             Console.WriteLine("Q - Sair");
@@ -142,6 +142,14 @@ namespace Reign_of_Grelok.state
 
         public void GetZombieHead() { this.zombieHead = true; }
 
+        public void GetKey()
+        {
+            this.brassKey = true;
+            this.zombieHead = false;
+        }
+
         public bool HasZombieHead() { return this.zombieHead; }
+
+        public bool HasKey() { return this.brassKey; }
     }
 }
