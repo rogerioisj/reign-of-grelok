@@ -8,12 +8,14 @@ namespace Reign_of_Grelok.stages
         private Inventory inventoryInstance;
         private Town townInstance;
         private Chapel chapelInstance;
+        private Swamp swampInstance;
 
-        public Plains(Inventory inventoryInstance, Town town, Chapel chapel)
+        public Plains(Inventory inventoryInstance, Town town, Chapel chapel, Swamp swamp)
         {
             this.inventoryInstance = inventoryInstance;
             this.townInstance = town;
             this.chapelInstance = chapel;
+            this.swampInstance = swamp;
         }
 
         public void Load()
@@ -59,6 +61,10 @@ namespace Reign_of_Grelok.stages
                 case '4':
                     Console.Clear();
                     this.chapelInstance.Load(this.Load);
+                    break;
+                case '5':
+                    Console.Clear();
+                    this.swampInstance.Load(this.Load);
                     break;
                 default:
                     Console.Clear();
