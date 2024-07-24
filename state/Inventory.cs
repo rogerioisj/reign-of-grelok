@@ -14,6 +14,7 @@ namespace Reign_of_Grelok.state
         private bool magicSword;
         private bool brassKey;
         private bool rawGemStone;
+        private bool fullFlask;
         private List<string> itemDescriptions;
 
         public Inventory()
@@ -26,6 +27,7 @@ namespace Reign_of_Grelok.state
             magicSword = false;
             brassKey = false;
             rawGemStone = false;
+            fullFlask = false;
             itemDescriptions = new List<string>();
             itemDescriptions.Add("Sua arma. Enferrujada, mas confiável.");
             itemDescriptions.Add("Um frasco muito pequeno para transportar água.");
@@ -35,6 +37,7 @@ namespace Reign_of_Grelok.state
             itemDescriptions.Add("Uma arma encantada para derrotar Grelok!");
             itemDescriptions.Add("Chave dada a você pelo padre.");
             itemDescriptions.Add("Esta pedra preciosa pode ser valiosa...");
+            itemDescriptions.Add("Seu Frasco está cheio de água benta.");
         }
 
         public void Load(CallbackStageMenu callback)
@@ -52,6 +55,7 @@ namespace Reign_of_Grelok.state
             if (magicSword) Console.WriteLine("6 - Espada mágica");
             if (brassKey) Console.WriteLine("7 - Chave de latão");
             if (rawGemStone) Console.WriteLine("8 - Pedra preciosa bruta");
+            if (fullFlask) Console.WriteLine("9 - Frasco de bebida cheio.");
             Console.WriteLine("B - Voltar");
             Console.WriteLine("Q - Sair");
             var keyInfo = Console.ReadKey();
@@ -104,6 +108,11 @@ namespace Reign_of_Grelok.state
                     this.showItemDescription(7);
                     this.Load(callback);
                     break;
+                case '9':
+                    this.checkIfItemISAvailable(fullFlask, callback);
+                    this.showItemDescription(8);
+                    this.Load(callback);
+                    break;
                 case 'b':
                 case 'B':
                     Console.Clear();
@@ -141,6 +150,12 @@ namespace Reign_of_Grelok.state
         }
 
         public void GetZombieHead() { this.zombieHead = true; }
+
+        public void FulfillFlask()
+        {
+            this.drinkingFlask = false;
+            this.fullFlask = true;
+        }
 
         public void GetKey()
         {
