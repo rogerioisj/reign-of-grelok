@@ -22,8 +22,8 @@ namespace Reign_of_Grelok.stages
             Console.WriteLine("1 - Olhar ao redor");
             if (stateManagementInstance.AlreadyCheckChapel())
             {
-                Console.WriteLine("2 - Atacar zumbi com a espada");
-                Console.WriteLine("3 - Examinar sepultura");
+                if ( !this.stateManagementInstance.AlreadyKilledZombie() ) Console.WriteLine("2 - Atacar zumbi com a espada");
+                Console.WriteLine("3 - Examinar cova");
             }
             Console.WriteLine("4 - Ir para Oeste");
             Console.WriteLine("I - Iventário");
@@ -44,7 +44,7 @@ namespace Reign_of_Grelok.stages
                     break;
                 case '2':
                     this.CheckIfOptionIsAvailable(
-                            this.stateManagementInstance.AlreadyCheckChapel(),
+                            this.stateManagementInstance.AlreadyCheckChapel() && !this.stateManagementInstance.AlreadyKilledZombie(),
                             callback
                             );
                     this.AttackZombie();
@@ -91,6 +91,17 @@ namespace Reign_of_Grelok.stages
 
         private void ShowStageMessage()
         {
+            if (this.stateManagementInstance.AlreadyKilledZombie())
+            {
+                this.ShowPostActionStageMessage();
+                return;
+            }
+
+            this.ShowStandardStageMessage();
+        }
+
+        private void ShowStandardStageMessage()
+        {
             Console.Clear();
             Console.WriteLine("Você olha ao seu redor...\n\n");
             Console.WriteLine(
@@ -101,7 +112,27 @@ namespace Reign_of_Grelok.stages
                 "Um pequeno cemitério de lápides tortas fica à sombra do campanário rachado. " +
                 "O caminho de terra serpenteia para oeste através de uma planície grande e indefinida.\r\n\r\n" +
                 "Um zumbi cambaleia sem rumo por perto.\r\n\r\n" +
-                "Há uma sepultura aberta nas proximidades."
+                "Há uma cova aberta nas proximidades."
+            );
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+            this.stateManagementInstance.SeeChapel();
+        }
+
+        private void ShowPostActionStageMessage()
+        {
+            Console.Clear();
+            Console.WriteLine("Você olha ao seu redor...\n\n");
+            Console.WriteLine(
+                "Você está no final de um caminho de terra, de frente para uma pequena capela. " +
+                "As paredes de estuque estão desbotadas, faltam muitas telhas. " +
+                "As grandes portas de carvalho estão trancadas. " +
+                "A congregação não está em lugar nenhum. " +
+                "Um pequeno cemitério de lápides tortas fica à sombra do campanário rachado. " +
+                "O caminho de terra serpenteia para oeste através de uma planície grande e indefinida.\r\n\r\n" +
+                "Há uma cova aberta nas proximidades."
             );
             Console.WriteLine();
             Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
@@ -112,6 +143,17 @@ namespace Reign_of_Grelok.stages
 
         private void ShowGraveMessage()
         {
+            if (this.stateManagementInstance.AlreadyKilledZombie() && this.inventoryInstance.HasZombieHead())
+            {
+                this.ShowPostActionGraveWithoutItemMessage();
+                return;
+            }
+
+            if (this.stateManagementInstance.AlreadyKilledZombie())
+            {
+                this.ShowPostActionGraveMessage();
+                return;
+            }
             this.ShowStandardGraveMessage();
         }
 
@@ -120,7 +162,7 @@ namespace Reign_of_Grelok.stages
             Console.Clear();
             Console.WriteLine("Você olha ao seu redor...\n\n");
             Console.WriteLine();
-            Console.WriteLine("Há uma sepultura profunda e vazia no cemitério. Vários ratos inchados flutuando em trinta centímetros de água suja no fundo. Não caia!");
+            Console.WriteLine("Há uma cova profunda e vazia no cemitério. Vários ratos inchados flutuando em trinta centímetros de água suja no fundo. Não caia!");
             Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
             Console.ReadKey();
             Console.Clear();
@@ -129,12 +171,32 @@ namespace Reign_of_Grelok.stages
         private void ShowPostActionGraveMessage()
         {
             Console.Clear();
-            Console.WriteLine("Você olha ao seu redor...\n\n");
+            Console.WriteLine("Você espia dentro da cova aberta...\n\n");
             Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine("Há uma cova profunda e vazia no cemitério. " +
+                "Vários ratos inchados e um cadáver de zumbi flutuam em trinta centímetros de água suja no fundo. Não caia!\r\n\r\n" +
+                "Uma grotesca cabeça de zumbi está presa em uma raiz perto do topo da cova. " +
+                "Você embala o troféu horrível como prova de sua ação."
+            );
             Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
             Console.ReadKey();
             Console.Clear();
+            this.inventoryInstance.GetZombieHead();
+        }
+
+        private void ShowPostActionGraveWithoutItemMessage()
+        {
+            Console.Clear();
+            Console.WriteLine("Você espia dentro da cova aberta...\n\n");
+            Console.WriteLine();
+            Console.WriteLine(
+                "Há uma cova profunda e vazia no cemitério. " +
+                "Vários ratos inchados e um cadáver de zumbi flutuam em trinta centímetros de água suja no fundo. Não caia!"
+            );
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+            this.inventoryInstance.GetZombieHead();
         }
 
         private void AttackZombie()
