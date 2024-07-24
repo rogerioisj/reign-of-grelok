@@ -10,7 +10,8 @@ namespace Reign_of_Grelok
             var stateManagement = new Management();
             var town = new Town(inventory, stateManagement);
             var chapel = new Chapel(inventory, stateManagement);
-            var plains = new Plains(inventory, town, chapel);
+            var swamp = new Swamp(inventory, stateManagement);
+            var plains = new Plains(inventory, town, chapel, swamp);
             plains.Load();
         }
     }
