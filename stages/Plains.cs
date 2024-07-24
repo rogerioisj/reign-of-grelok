@@ -5,11 +5,11 @@ namespace Reign_of_Grelok.stages
 {
     class Plains : IStage
     {
-        private Inventory iventoryInstance;
+        private Inventory inventoryInstance;
 
-        public Plains(Inventory iventoryInstance)
+        public Plains(Inventory inventoryInstance)
         {
-            this.iventoryInstance = iventoryInstance;
+            this.inventoryInstance = inventoryInstance;
         }
 
         public void Load()
@@ -43,7 +43,7 @@ namespace Reign_of_Grelok.stages
                 case 'i':
                 case 'I':
                     Console.Clear();
-                    this.iventoryInstance.Load(this.Load);
+                    this.inventoryInstance.Load(this.Load);
                     break;
                 default:
                     Console.Clear();
