@@ -23,6 +23,7 @@ namespace Reign_of_Grelok.stages
             Console.WriteLine("4 - Ir para Leste");
             Console.WriteLine("5 - Ir para Oeste");
             Console.WriteLine("I - Iventário");
+            Console.WriteLine("Q - Sair");
             var keyInfo = Console.ReadKey();
             var key = keyInfo.KeyChar;
 
