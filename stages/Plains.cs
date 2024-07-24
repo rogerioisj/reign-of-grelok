@@ -65,7 +65,8 @@ namespace Reign_of_Grelok.stages
         private void ShowStageMessage()
         {
             Console.Clear();
-            Console.WriteLine("" +
+            Console.WriteLine("Você observa a sua volta...");
+            Console.WriteLine("\n\n\n" +
                 "Você está em uma ampla planície. " +
                 "Os contrafortes se estendem ao norte, onde as nuvens se reúnem em torno de um pico sinistro. " +
                 "Um caminho de terra serpenteia de uma capela solitária para o leste, " +
@@ -73,7 +74,6 @@ namespace Reign_of_Grelok.stages
                 "Névoas finas se acumulam sobre os pântanos no oeste, " +
                 "onde uma torre fina fica sozinha no pântano."
              );
-            Console.WriteLine("\n\n\nVocê observa a sua volta...");
             Console.WriteLine("\n\n\nPressione qualquer tecla para continuar!");
             Console.ReadKey();
             Console.Clear();
