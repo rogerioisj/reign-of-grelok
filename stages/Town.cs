@@ -42,6 +42,27 @@ namespace Reign_of_Grelok.stages
             {
                 case '1':
                     this.ShowStageMessage();
+                    this.Load(callback);
+                    break;
+                case '2':
+                    this.CheckIfOptionIsAvailable(
+                            this.stateManagementInstance.AlreadyCheckTown(),
+                            callback
+                            );
+                    this.ShowBlacksmithMessage();
+                    this.Load(callback);
+                    break;
+                case '3':
+                    this.CheckIfOptionIsAvailable(
+                            this.stateManagementInstance.AlreadyCheckTown(),
+                            callback
+                            );
+                    this.ShowPriestMessage();
+                    this.Load(callback);
+                    break;
+                case '4':
+                    Console.Clear();
+                    callback();
                     break;
                 case 'q':
                 case 'Q':
@@ -72,6 +93,7 @@ namespace Reign_of_Grelok.stages
 
         private void ShowStageMessage()
         {
+            Console.Clear();
             Console.WriteLine(
                 "Você está na poeirenta praça do mercado de uma cidade tranquila. " +
                 "Muitas das lojas e casas estão abandonadas, e os cidadãos que podem ser vistos falam em voz baixa, lançando olhares furtivos para o horizonte escuro no extremo norte. " +
@@ -79,6 +101,9 @@ namespace Reign_of_Grelok.stages
                 "O ferreiro está aqui, trabalhando.\r\n\r\n" +
                 "Um padre está aqui, bebendo."
              );
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
             Console.Clear();
             this.stateManagementInstance.SeeTown();
         }
@@ -90,12 +115,17 @@ namespace Reign_of_Grelok.stages
 
         private void ShowStandardBlacksmithMessage()
         {
+            Console.Clear();
             Console.WriteLine(
                 "Seus olhos lacrimejam por causa da fumaça e do calor bajulador dentro da tenda. " +
                 "O homem enorme enxuga o suor da cabeça careca e levanta os olhos do trabalho.\r\n\r\n\"" +
                 "Não falta trabalho a ser feito com Grelok assustando todo mundo. Deixe-me cumprir meus pedidos, estranho.\" " +
                 "Com isso, o ferreiro dispensa você de sua tenda e molha uma lâmina quente em água, sibilando com vapor."
              );
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         private void ShowPriestMessage()
@@ -105,6 +135,7 @@ namespace Reign_of_Grelok.stages
 
         private void ShowStandardPriestMessage()
         {
+            Console.Clear();
             Console.WriteLine(
                 "O padre percebe sua aproximação e levanta os olhos do seu gole.\r\n" +
                 "“Grelok chegou e estamos abandonados!”, ele grita. " +
@@ -113,6 +144,10 @@ namespace Reign_of_Grelok.stages
                 "Quando Grelok chegou à montanha, os mortos em seu cemitério começaram a se levantar e sua congregação se dispersou.\r\n\r\n" +
                 "“Se você pudesse livrar o lugar dos zumbis”, ele lhe diz, “eu te darei a chave, e você pode ir ao boticário”"
              );
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
