@@ -7,11 +7,13 @@ namespace Reign_of_Grelok.state
         private bool hasSawTown;
         private bool hasSawChapel;
         private bool hasKilledZombie;
+        private bool hasUsedKey;
         private bool hasFinishedGame;
         public Management() {
             hasSawTown = false;
             hasSawChapel = false;
             hasKilledZombie = false;
+            hasUsedKey = false;
             hasFinishedGame = false;
         }
 
@@ -21,6 +23,8 @@ namespace Reign_of_Grelok.state
 
         public void KillZombie() { this.hasKilledZombie = true; }
 
+        public void UseKey() { this.hasUsedKey = true; }
+
         public void FinishGame() { this.hasFinishedGame = true; }
 
         public bool AlreadyCheckTown() { return this.hasSawTown; }
@@ -28,5 +32,9 @@ namespace Reign_of_Grelok.state
         public bool AlreadyCheckChapel() { return this.hasSawChapel; }
 
         public bool AlreadyKilledZombie() { return this.hasKilledZombie; }
+
+        public bool AlreadyUsedKey() { return this.hasUsedKey; }
+
+
     }
 }
