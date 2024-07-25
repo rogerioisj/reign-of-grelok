@@ -65,6 +65,6 @@ namespace Reign_of_Grelok.state
 
         public bool AlreadyClearGem() { return this.hasClearGem; }
 
-
+        public bool AlreadyFinishedGame() { return this.hasFinishedGame; }
     }
 }
