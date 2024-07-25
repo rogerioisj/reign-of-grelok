@@ -27,7 +27,7 @@ namespace Reign_of_Grelok.stages
                 Console.WriteLine("2 - Usar espada em Grelok");
                 if (!this.stateManagementInstance.AlreadyTakedGem()) Console.WriteLine("3 - Investigar objeto brilhante");
             }
-            Console.WriteLine("4 - Ir para Leste");
+            Console.WriteLine("4 - Ir para Sul");
             Console.WriteLine("I - Iventário");
             Console.WriteLine("Q - Sair");
             var keyInfo = Console.ReadKey();
