@@ -172,8 +172,18 @@ namespace Reign_of_Grelok.state
             this.magicalShard = true;
         }
 
+        public void ForgeMagicalSword()
+        {
+            this.magicSword = true;
+            this.rustSword = false;
+            this.magicalShard = false;
+            this.refinedGemStone = false;
+        }
+
         public bool HasZombieHead() { return this.zombieHead; }
 
         public bool HasKey() { return this.brassKey; }
+
+        public bool HasRefinedGem() { return this.refinedGemStone; }
     }
 }
