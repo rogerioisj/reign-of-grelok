@@ -92,6 +92,31 @@ namespace Reign_of_Grelok.stages
             this.ShowStandardStageMessage();
         }
 
+        private void ShowAttackGrelokMessage()
+        {
+            this.ShowStandardAttackMessage();
+        }
+
+        private void ShowStandardAttackMessage()
+        {
+            Console.Clear();
+            Console.WriteLine("Suas armas insignificantes são inúteis em Grelok.");
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+        private void ShowMagicalSwordAttackMessage()
+        {
+            Console.Clear();
+            Console.WriteLine("Suas armas insignificantes são inúteis em Grelok.");
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+        }
+
         private void ShowStandardStageMessage()
         {
             Console.Clear();
