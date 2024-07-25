@@ -108,6 +108,18 @@ namespace Reign_of_Grelok.stages
 
         private void ShowWizardMessage()
         {
+            if (this.stateManagementInstance.AlreadyTalkedToWizard() && this.stateManagementInstance.AlreadyClearGem())
+            {
+                this.ShowWizardPostClearGemMessage();
+                return;
+            }
+
+            if (this.stateManagementInstance.AlreadyTalkedToWizard() && this.stateManagementInstance.AlreadyTakedGem())
+            {
+                this.ShowWizardWithGemMessage();
+                return;
+            }
+
             if (this.stateManagementInstance.AlreadyTalkedToWizard())
             {
                 this.ShowWizardPostActionMessage();
@@ -145,6 +157,41 @@ namespace Reign_of_Grelok.stages
             Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
             Console.ReadKey();
             Console.Clear();
+        }
+
+        private void ShowWizardWithGemMessage()
+        {
+            Console.Clear();
+            Console.Write("Você fala com o mago...\n\n\n");
+            Console.WriteLine(
+                "\"Hoo-hoo! O matador de Grelok se aproxima, com a pedra bruta na mão, assim como eu vi!\" " +
+                "O chapéu pontudo do mago balança com entusiasmo quando ele aponta o dedo para você. " +
+                "De repente, um arco de luz laranja claro se estende do dedo nodoso e tira a pedra preciosa de sua bolsa antes que você possa reagir. " +
+                "A pedra preciosa para e paira no ar diante do nariz do mago.\r\n\r\n\"Essência seja verdadeira, poderes renovem-se, Fatty-Hoo-Do!\" " +
+                "Com isso, ele bate na pedra flutuante, esmagando-a contra a pedra lisa da torre. Em uma explosão de luz, a pedra se divide em duas, e uma cai em cada palma estendida do pequeno bruxo saltitante.\r\n\r\n\"" +
+                "Fragmento para a espada. Envolva-a em ferro e ela encontrará o coração negro de Grelok para você. Leve o joio também. " +
+                "Você precisará do pagamento para um ferreiro forjar a arma.\" " +
+                "Ele joga as pedras nas quais você salta para pegá-las com segurança."
+            );
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+            this.inventoryInstance.RefineGem();
+            this.stateManagementInstance.ClearGem();
+        }
+
+        private void ShowWizardPostClearGemMessage()
+        {
+            Console.Clear();
+            Console.Write("Você fala com o mago...\n\n\n");
+            Console.WriteLine("\"Leve você a uma ferraria! Forje o fragmento com a espada e derrote Grelok!\"\r\n\r\nO mago joga algumas pedras para afastá-lo e se ocupa em conjurar nuvens coloridas de fumaça.");
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+            this.inventoryInstance.RefineGem();
+            this.stateManagementInstance.ClearGem();
         }
     }
 }
