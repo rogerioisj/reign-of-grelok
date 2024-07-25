@@ -109,6 +109,12 @@ namespace Reign_of_Grelok.stages
 
         private void ShowBlacksmithMessage()
         {
+            if (this.stateManagementInstance.AlreadyClearGem() && this.inventoryInstance.HasRefinedGem())
+            {
+                this.ShowBlacksmithMessageWithGem();
+                return;
+            }
+
             this.ShowStandardBlacksmithMessage();
         }
 
@@ -126,6 +132,24 @@ namespace Reign_of_Grelok.stages
             Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
             Console.ReadKey();
             Console.Clear();
+        }
+
+        private void ShowBlacksmithMessageWithGem()
+        {
+            Console.Clear();
+            Console.Write("Você se aproxima do ferreiro...\n\n\n");
+            Console.WriteLine(
+                "O ferreiro olha para você rispidamente e está prestes a dispensá-lo quando você tira a pedra preciosa polida de sua bolsa. " +
+                "Ele deixa o martelo de lado e torce o bigode.\r\n\r\n\"" +
+                "Uma pedra muito boa, claro.\" Ele diz, admirando a pedra lapidada: \"" +
+                "Do que você estaria precisando, então?\"\r\n\r\n" +
+                "Seguindo suas instruções cuidadosas, o ferreiro reforja sua espada enferrujada com o fragmento mágico no centro da lâmina."
+            );
+            Console.WriteLine();
+            Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+            this.inventoryInstance.ForgeMagicalSword();
         }
 
         private void ShowPriestMessage()
