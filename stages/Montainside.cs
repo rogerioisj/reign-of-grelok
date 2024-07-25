@@ -49,7 +49,7 @@ namespace Reign_of_Grelok.stages
                         this.stateManagementInstance.AlreadyCheckMontainside(),
                         callback
                         );
-                    this.ShowStageMessage();
+                    this.ShowAttackGrelokMessage();
                     this.Load(callback);
                     break;
                 case '3':
