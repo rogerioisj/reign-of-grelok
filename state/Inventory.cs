@@ -163,6 +163,8 @@ namespace Reign_of_Grelok.state
             this.zombieHead = false;
         }
 
+        public void GetGem() { this.rawGemStone = true; }
+
         public bool HasZombieHead() { return this.zombieHead; }
 
         public bool HasKey() { return this.brassKey; }
