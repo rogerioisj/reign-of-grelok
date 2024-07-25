@@ -24,7 +24,8 @@ namespace Reign_of_Grelok.stages
             Console.WriteLine("1 - Olhar ao redor");
             if (this.stateManagementInstance.AlreadyCheckMontainside())
             {
-                Console.WriteLine("2 - Usar espada em Grelok");
+                if (this.inventoryInstance.HasMagicalSword()) Console.WriteLine("2 - Usar espada mágica em Grelok");
+                else Console.WriteLine("2 - Usar espada em Grelok");
                 if (!this.stateManagementInstance.AlreadyTakedGem()) Console.WriteLine("3 - Investigar objeto brilhante");
             }
             Console.WriteLine("4 - Ir para Sul");
@@ -94,6 +95,12 @@ namespace Reign_of_Grelok.stages
 
         private void ShowAttackGrelokMessage()
         {
+            if (this.inventoryInstance.HasMagicalSword())
+            {
+                this.ShowMagicalSwordAttackMessage();
+                return;
+            }
+
             this.ShowStandardAttackMessage();
         }
 
@@ -110,11 +117,22 @@ namespace Reign_of_Grelok.stages
         private void ShowMagicalSwordAttackMessage()
         {
             Console.Clear();
-            Console.WriteLine("Suas armas insignificantes são inúteis em Grelok.");
+            Console.WriteLine(
+                "Quando você desembainha sua espada, Grelok abaixa sua grande cabeça com chifres e solta uma risada na sua cara. " +
+                "Você cerra os dentes e desfere um golpe poderoso com as duas mãos, a lâmina mágica ressoando claramente, mesmo em meio ao tumulto de gargalhadas guturais.\r\n\r\n" +
+                "Você balança a espada com tanta força que ela escapa de suas mãos e cai na boca aberta da monstruosidade, perdida de vista na escuridão árida da garganta de Grelok. " +
+                "Você dá um passo para trás enquanto Grelok fecha a boca e fica de pé. Ele fica imóvel por um momento, depois começa a arranhar o pescoço. " +
+                "Abafado, um toque pode ser ouvido como se estivesse a uma grande distância.\r\n\r\n" +
+                "De repente, o peito de Grelok explode em uma fonte de sangue verde e viscoso. " +
+                "O Toque pode ser ouvido claramente agora, e enquanto a força vital escorre ao redor da ponta saliente da espada mágica, as nuvens de tempestade que rodopiam no pico já estão se dissipando. " +
+                "Grelok foi derrotado!\r\n\r\n " +
+                "FIM\r\n " +
+                "(Obrigado por jogar!)"
+            );
             Console.WriteLine();
             Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
             Console.ReadKey();
-            Console.Clear();
+            Environment.Exit(0);
         }
 
         private void ShowStandardStageMessage()
