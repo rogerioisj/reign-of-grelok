@@ -111,6 +111,7 @@ namespace Reign_of_Grelok.stages
             if (this.stateManagementInstance.AlreadyTalkedToWizard())
             {
                 this.ShowWizardPostActionMessage();
+                return;
             }
 
             this.ShowWizardStandardMessage();
