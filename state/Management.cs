@@ -12,6 +12,7 @@ namespace Reign_of_Grelok.state
         private bool hasKilledZombie;
         private bool hasUsedKey;
         private bool hasTakedGem;
+        private bool hasClearGem;
         private bool hasFinishedGame;
         public Management() {
             hasSawTown = false;
@@ -22,6 +23,7 @@ namespace Reign_of_Grelok.state
             hasKilledZombie = false;
             hasUsedKey = false;
             hasTakedGem = false;
+            hasClearGem = false;
             hasFinishedGame = false;
         }
 
@@ -41,6 +43,8 @@ namespace Reign_of_Grelok.state
 
         public void TalkToWizard() {  this.hasTalkedToWizard = true; }
 
+        public void ClearGem() {  this.hasClearGem = true; }
+
         public void FinishGame() { this.hasFinishedGame = true; }
 
         public bool AlreadyCheckTown() { return this.hasSawTown; }
@@ -58,6 +62,8 @@ namespace Reign_of_Grelok.state
         public bool AlreadyTalkedToWizard() { return this.hasTalkedToWizard; }
 
         public bool AlreadyTakedGem() { return this.hasTakedGem; }
+
+        public bool AlreadyClearGem() { return this.hasClearGem; }
 
 
     }
