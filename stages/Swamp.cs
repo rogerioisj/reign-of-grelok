@@ -26,7 +26,7 @@ namespace Reign_of_Grelok.stages
                 Console.WriteLine("2 - Falar com ferreiro");
                 Console.WriteLine("3 - Falar com padre");
             }
-            Console.WriteLine("4 - Ir para Norte");
+            Console.WriteLine("4 - Ir para Leste");
             Console.WriteLine("I - Iventário");
             Console.WriteLine("Q - Sair");
             var keyInfo = Console.ReadKey();
@@ -74,14 +74,13 @@ namespace Reign_of_Grelok.stages
             Console.Clear();
             Console.WriteLine("Você olha ao seu redor...\n\n");
             Console.WriteLine(
-                "Você está no final de um caminho de terra, de frente para uma pequena capela. " +
-                "As paredes de estuque estão desbotadas, faltam muitas telhas. " +
-                "As grandes portas de carvalho estão trancadas. " +
-                "A congregação não está em lugar nenhum. " +
-                "Um pequeno cemitério de lápides tortas fica à sombra do campanário rachado. " +
-                "O caminho de terra serpenteia para oeste através de uma planície grande e indefinida.\r\n\r\n" +
-                "Um zumbi cambaleia sem rumo por perto.\r\n\r\n" +
-                "Há uma cova aberta nas proximidades."
+                "Você está em um caminho estreito de pedra em um pântano escuro. " +
+                "Bolhas gordurosas flutuam até o topo das águas do pântano em ambos os lados e estouram preguiçosamente, salpicando suas pernas com lama e limo. " +
+                "Uma pequena torre de pedra fica aqui. Nenhuma porta é visível e as pedras são lisas e polidas. " +
+                "Uma varanda se projeta no meio da face da torre. " +
+                "Os cheiros inebriantes do incenso misturam-se com o fedor nauseante do pântano. " +
+                "O caminho de pedra desenrola-se para leste, em direção a uma ampla planície além dos pântanos.\r\n\r\n" +
+                "Um bruxo está aqui, gesticulando loucamente em sua varanda."
             );
             Console.WriteLine();
             Console.WriteLine("\n\nPressione qualquer tecla para continuar...");
