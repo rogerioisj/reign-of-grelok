@@ -185,5 +185,7 @@ namespace Reign_of_Grelok.state
         public bool HasKey() { return this.brassKey; }
 
         public bool HasRefinedGem() { return this.refinedGemStone; }
+
+        public bool HasMagicalSword() { return this.magicSword; }
     }
 }
